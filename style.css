@@ -500,14 +500,23 @@ nav a:hover::after {
   transform: rotateY(180deg);
 }
 
+.product-card.flipped .card-front {
+  pointer-events: none;
+}
+
+.product-card:not(.flipped) .card-back {
+  pointer-events: none;
+}
+
 .card-front,
 .card-back {
   position: absolute;
   inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+transform-style: preserve-3d;
+-webkit-transform-style: preserve-3d;
   border: 1px solid var(--accent-tint20);
-  overflow: hidden;
   transition:
     border-color 0.3s,
     background var(--tr);
@@ -759,9 +768,12 @@ nav a:hover::after {
 .card-back-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 7px;
+    justify-content: center;
   margin-bottom: 14px;
   padding-bottom: 12px;
+  height: 150px;
   border-bottom: 1px solid var(--accent-tint20);
 }
 .card-back-name {
@@ -770,6 +782,7 @@ nav a:hover::after {
   letter-spacing: 2px;
   color: #fff;
   line-height: 1.1;
+  text-align: center;
 }
 .card-back-price {
   font-size: 14px;
@@ -1757,16 +1770,6 @@ body::before {
   }
   .color-swatches {
     display: none;
-  }
-
-  .card-back-name {
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .card-back-header {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   /* FIX 6: Mobile card grid */
