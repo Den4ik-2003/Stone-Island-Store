@@ -1759,6 +1759,16 @@ body::before {
     display: none;
   }
 
+  .card-back-name {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .card-back-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   /* FIX 6: Mobile card grid */
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
