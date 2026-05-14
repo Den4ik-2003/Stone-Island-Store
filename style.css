@@ -11,6 +11,8 @@
   --accent-tint5: rgba(26, 111, 255, 0.05);
   --accent-tint10: rgba(26, 111, 255, 0.1);
   --accent-tint20: rgba(26, 111, 255, 0.2);
+  /* FIX 4: fixed card height */
+  --card-height: 580px;
 }
 *,
 *::before,
@@ -454,27 +456,50 @@ nav a:hover::after {
   border-color: var(--accent);
 }
 
-/* PRODUCT GRID */
+/* ====================================================
+   PRODUCT CARDS - FIX 1, 4, 5, 6
+   ==================================================== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+  align-items: start; /* FIX 4: prevent stretching */
 }
+
+/* FIX 4: Fixed height container - no grow/shrink */
 .product-card {
-  perspective: 1000px;
-  height: 560px;
+  /* We use a wrapper approach instead of perspective on the card itself */
+  position: relative;
+  height: var(--card-height);
   cursor: pointer;
+  /* FIX 1: perspective on the wrapper, not inner */
 }
+
+/* FIX 1 & 6: The flip container */
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
+  /* perspective here ensures correct 3D on all devices */
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  /* FIX 1: remove perspective from parent, set it here */
+  perspective: 1200px;
 }
+
+/* FIX 1: perspective must be on a non-transformed ancestor */
+.product-card {
+  perspective: 1200px;
+}
+/* Remove perspective from card-inner since product-card has it */
+.card-inner {
+  perspective: none;
+}
+
 .product-card.flipped .card-inner {
   transform: rotateY(180deg);
 }
+
 .card-front,
 .card-back {
   position: absolute;
@@ -487,27 +512,35 @@ nav a:hover::after {
     border-color 0.3s,
     background var(--tr);
 }
+
 .card-front {
   background: var(--accent-tint5);
   display: flex;
   flex-direction: column;
 }
+
 .card-back {
   background: var(--card, #151c30);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   padding: 20px;
+  /* FIX 1: ensure back is fully clickable */
+  pointer-events: auto;
 }
+
 .product-card:hover .card-front {
   border-color: var(--accent);
 }
 .product-card:hover .card-back {
   border-color: var(--accent);
 }
+
+/* FIX 4: Image area fixed height */
 .card-img {
   position: relative;
-  flex: 1;
+  height: 260px; /* fixed */
+  flex-shrink: 0;
   overflow: hidden;
   background: linear-gradient(
     160deg,
@@ -565,6 +598,8 @@ nav a:hover::after {
   );
   pointer-events: none;
 }
+
+/* FIX 5: Remove wish-btn from card-img (front only, no back) - keep only on front */
 .wish-btn {
   position: absolute;
   bottom: 12px;
@@ -589,6 +624,7 @@ nav a:hover::after {
   border-color: #e84565;
   background: rgba(232, 69, 101, 0.15);
 }
+
 .flip-hint {
   position: absolute;
   bottom: 12px;
@@ -606,10 +642,15 @@ nav a:hover::after {
 .product-card:hover .flip-hint {
   color: rgba(255, 255, 255, 0.6);
 }
+
+/* FIX 4: Card body fixed layout */
 .card-body {
   padding: 16px 16px 14px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .card-body::before {
   content: "";
@@ -685,6 +726,7 @@ nav a:hover::after {
   border-color: var(--accent);
   color: #fff;
 }
+/* FIX 4: add-to-cart pinned to bottom */
 .add-to-cart {
   width: 100%;
   padding: 9px;
@@ -697,6 +739,7 @@ nav a:hover::after {
   color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: all 0.2s;
+  margin-top: auto;
 }
 .add-to-cart:hover:not(:disabled) {
   background: var(--accent);
@@ -711,6 +754,8 @@ nav a:hover::after {
   border-color: rgba(255, 165, 0, 0.4);
   color: rgba(255, 165, 0, 0.6);
 }
+
+/* CARD BACK */
 .card-back-header {
   display: flex;
   align-items: center;
@@ -739,11 +784,16 @@ nav a:hover::after {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+
+/* FIX 1 & 6: Gallery grid - ensure ALL 4 items are fully clickable */
 .card-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   flex: 1;
+  /* FIX 1: explicit z-index and pointer-events */
+  position: relative;
+  z-index: 10;
   pointer-events: auto;
 }
 .card-gallery-item {
@@ -756,7 +806,10 @@ nav a:hover::after {
   transition:
     border-color 0.2s,
     transform 0.2s;
-  z-index: 1;
+  /* FIX 1: explicit clickable */
+  z-index: 10;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
 }
 .card-gallery-item:hover {
   border-color: var(--accent);
@@ -791,6 +844,8 @@ nav a:hover::after {
   color: #fff;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
+
+/* FIX 1: Back flip button - fully clickable */
 .card-back-flip-back {
   margin-top: 12px;
   width: 100%;
@@ -808,6 +863,11 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  /* FIX 1: ensure it's above any overlapping layers */
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
 }
 .card-back-flip-back:hover {
   border-color: rgba(255, 255, 255, 0.5);
@@ -1584,6 +1644,7 @@ footer {
   font-size: 12px;
   line-height: 1.9;
 }
+
 body::before {
   content: "";
   position: fixed;
@@ -1616,7 +1677,9 @@ body::before {
   margin-top: 40px;
 }
 
-/* MOBILE */
+/* =====================
+   RESPONSIVE
+   ===================== */
 @media (max-width: 768px) {
   nav {
     display: none;
@@ -1695,13 +1758,20 @@ body::before {
   .color-swatches {
     display: none;
   }
+
+  /* FIX 6: Mobile card grid */
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+  /* FIX 4: Consistent mobile card height */
   .product-card {
-    height: 460px;
+    height: 500px;
   }
+  .card-img {
+    height: 220px;
+  }
+
   .features-grid {
     grid-template-columns: 1fr;
   }
@@ -1724,7 +1794,24 @@ body::before {
     max-width: 90vw;
     max-height: 70vh;
   }
+
+  /* FIX 6: Mobile back card - ensure clickability */
+  .card-back {
+    touch-action: manipulation;
+  }
+  .card-gallery {
+    touch-action: manipulation;
+  }
+  .card-gallery-item {
+    touch-action: manipulation;
+    min-height: 44px;
+  }
+  .card-back-flip-back {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
 }
+
 @media (max-width: 1100px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1746,6 +1833,6 @@ body::before {
     grid-template-columns: repeat(1, 1fr);
   }
   .product-card {
-    height: 520px;
+    height: 540px;
   }
 }
