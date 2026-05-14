@@ -485,6 +485,7 @@ nav a:hover::after {
   transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
   /* FIX 1: remove perspective from parent, set it here */
   perspective: 1200px;
+  will-change: transform;
 }
 
 /* FIX 1: perspective must be on a non-transformed ancestor */
@@ -510,12 +511,34 @@ nav a:hover::after {
 
 .card-front,
 .card-back {
+  transition: opacity .35s ease;
+}
+
+.card-back {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.product-card.flipped .card-front {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.product-card.flipped .card-back {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-front,
+.card-back {
   position: absolute;
   inset: 0;
- backface-visibility: hidden;
--webkit-backface-visibility: hidden;
-transform-style: preserve-3d;
--webkit-transform-style: preserve-3d;
+  overflow: visible;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   border: 1px solid var(--accent-tint20);
   transition:
     border-color 0.3s,
@@ -770,7 +793,7 @@ transform-style: preserve-3d;
   align-items: center;
   flex-direction: column;
   gap: 7px;
-    justify-content: center;
+  justify-content: center;
   margin-bottom: 14px;
   padding-bottom: 12px;
   height: 150px;
@@ -823,6 +846,23 @@ transform-style: preserve-3d;
   z-index: 10;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
+}
+.card-front {
+  z-index: 2;
+}
+
+.card-back {
+  z-index: 1;
+}
+
+.product-card.flipped .card-front {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-card.flipped .card-back {
+  z-index: 5;
+  pointer-events: auto;
 }
 .card-gallery-item:hover {
   border-color: var(--accent);
