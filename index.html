@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone Island — Sweatshirts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="#">
+        <span>STONE ISLAND</span>
+      </a>
+      <nav>
+        <a onclick="goTo('hero')">ГОЛОВНА</a>
+        <a onclick="goTo('catalog')">КАТАЛОГ</a>
+        <a onclick="goTo('features')">ПЕРЕВАГИ</a>
+        <a onclick="goTo('about')">ПРО НАС</a>
+        <a onclick="goTo('order')">КОНТАКТИ</a>
+      </nav>
+      <div class="header-actions">
+        <button onclick="goTo('catalog')" title="Каталог">
+          <svg
+            width="17"
+            height="17"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <button
+          onclick="goTo('order')"
+          title="Кошик"
+          style="position: relative"
+        >
+          <svg
+            width="17"
+            height="17"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <span class="cart-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="slides-bg" id="slides-bg"></div>
+
+      <div
+        class="slide active"
+        data-color="Navy"
+        data-rgb="26,111,255"
+        data-hex="#1a6fff"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">НОВА КОЛЕКЦІЯ 2026</span>
+          <h1>STONE ISLAND<br />NAVY</h1>
+          <p>Класика морської глибини.<br />Впізнаваний стиль кожен день.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/blue/blue.webp" alt="Navy" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        data-color="Black"
+        data-rgb="180,180,180"
+        data-hex="#b4b4b4"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">КЛАСИЧНИЙ ЧОРНИЙ</span>
+          <h1>STONE ISLAND<br />BLACK</h1>
+          <p>Мінімалізм без меж.<br />Завжди актуально.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/black/black.webp" alt="Black" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        data-color="Olive"
+        data-rgb="90,140,40"
+        data-hex="#5a8c28"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">МІЛІТАРІ СТИЛЬ</span>
+          <h1>STONE ISLAND<br />OLIVE</h1>
+          <p>Природна палітра.<br />Сучасна естетика.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/mentol/mentol.webp" alt="Light Green" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        data-color="Yellow"
+        data-rgb="230,190,0"
+        data-hex="#e6be00"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">СОНЯЧНИЙ ХІТ</span>
+          <h1>STONE ISLAND<br />YELLOW</h1>
+          <p>Яскравий настрій.<br />Виділись з натовпу.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/yellow/yellow.webp" alt="Yellow" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        data-color="Pink"
+        data-rgb="220,80,140"
+        data-hex="#dc508c"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">TREND SEASON</span>
+          <h1>STONE ISLAND<br />PINK</h1>
+          <p>Свіжий погляд.<br />Нова хвиля стилю.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/pink/pink.webp" alt="Pink" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        data-color="Green"
+        data-rgb="30,180,100"
+        data-hex="#1eb464"
+      >
+        <div class="slide-content">
+          <span class="slide-tag">FOREST EDITION</span>
+          <h1>STONE ISLAND<br />GREEN</h1>
+          <p>Природа і технологія.<br />Бездоганно разом.</p>
+          <button class="btn-primary" onclick="goTo('catalog')">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ →
+          </button>
+        </div>
+        <div class="slide-visual">
+          <img src="images/sweatshirt/green/green.webp" alt="Green" />
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="arrow-btn" id="prev-btn" title="Назад">
+          <svg
+            width="13"
+            height="13"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <div id="dots"></div>
+        <button class="arrow-btn" id="next-btn" title="Далі">
+          <svg
+            width="13"
+            height="13"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="color-swatches" id="color-swatches"></div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="scissor-title">
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+        <h2>ЧОМУ МИ</h2>
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-num">01</div>
+          <svg
+            width="32"
+            height="32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <h3>АВТЕНТИЧНІСТЬ</h3>
+          <p>
+            Кожна річ має сертифікат автентичності та голограму. Ми гарантуємо
+            100% оригінальну продукцію Stone Island.
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">02</div>
+          <svg
+            width="32"
+            height="32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+            />
+          </svg>
+          <h3>З ЛЮБОВ'Ю</h3>
+          <p>
+            Ми обираємо кожну позицію з ретельністю та повагою до бренду і до
+            наших клієнтів.
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">03</div>
+          <svg
+            width="32"
+            height="32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <h3>ШВИДКО І НАДІЙНО</h3>
+          <p>
+            Відправляємо в день замовлення. Нова Пошта по всій Україні за 1–2
+            дні.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog">
+      <div class="scissor-title">
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+        <h2>КАТАЛОГ</h2>
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+      </div>
+
+      <div class="catalog-search-wrap">
+        <div class="catalog-search">
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="text"
+            id="catalog-search-input"
+            placeholder="Пошук за назвою, кольором або описом…"
+          />
+          <button
+            class="search-clear"
+            id="search-clear-btn"
+            style="display: none"
+          >
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">УСІ</button>
+        <button class="filter-tab" data-filter="new">✦ НОВИНКИ</button>
+        <button class="filter-tab" data-filter="sweatshirt">СВІТШОТИ</button>
+        <button class="filter-tab" data-filter="zip-hoodie">ЗІП ХУДІ</button>
+        <button class="filter-tab" data-filter="zip-sweatshirt">
+          ЗІП СВІТШОТ
+        </button>
+        <button class="filter-tab wishlist-tab" data-filter="wishlist">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+            />
+          </svg>
+          ВПОДОБАНІ
+          <span class="wishlist-count-badge" id="wishlist-count-badge">0</span>
+        </button>
+      </div>
+
+      <div class="products-grid" id="products-grid"></div>
+
+      <div class="view-all-wrap">
+        <button class="btn-outline-accent" id="show-all-btn">
+          ПЕРЕГЛЯНУТИ ВСІ →
+        </button>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div
+      class="lightbox-overlay"
+      id="lightbox-overlay"
+      onclick="closeLightbox(event)"
+    >
+      <div class="lightbox-inner">
+        <button class="lightbox-close" onclick="closeLightboxBtn()">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" style="padding: 0">
+      <div class="about-text">
+        <p class="about-tag">ПРО БРЕНД</p>
+        <h2>STONE ISLAND</h2>
+        <p>
+          Stone Island — італійський бренд, що поєднує інноваційні технології,
+          функціональність та унікальний дизайн. Його впізнаваний логотип-компас
+          — символ якості та стилю у світі моди з 1982 року.
+        </p>
+        <button class="btn-primary">ДІЗНАТИСЬ БІЛЬШЕ →</button>
+      </div>
+      <div class="about-visual"></div>
+    </section>
+
+    <!-- ORDER -->
+    <section id="order">
+      <div class="scissor-title">
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+        <h2>ВАШ ВИБІР</h2>
+        <div class="line-row">
+          <div class="ln"></div>
+          <svg
+            class="scissors-icon"
+            width="20"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 7L7 4h3c0 2 4 2 4 0h3l4 3-2 3-2-1v9H6V13L4 10z" />
+          </svg>
+          <div class="ln"></div>
+        </div>
+      </div>
+      <div class="order-layout">
+        <div>
+          <div class="cart-title">КОШИК</div>
+          <div id="cart-items">
+            <div class="cart-empty">
+              <p>Ваш кошик порожній.<br />Оберіть товар у каталозі вище.</p>
+            </div>
+          </div>
+        </div>
+        <div class="order-form-wrap">
+          <div class="form-title">ОФОРМИТИ ЗАМОВЛЕННЯ</div>
+          <div class="form-group">
+            <label>Ваше ім'я</label>
+            <input type="text" placeholder="Іван" id="inp-name" />
+          </div>
+          <div class="form-group">
+            <label>Прізвище</label>
+            <input type="text" placeholder="Іваненко" id="inp-lastname" />
+          </div>
+          <div class="form-group">
+            <label>Номер телефону</label>
+            <input
+              type="tel"
+              placeholder="+38 (097) 123 45 67"
+              id="inp-phone"
+            />
+          </div>
+          <div class="form-group">
+            <label>Місто</label>
+            <input type="text" placeholder="Київ" id="inp-city" />
+          </div>
+          <div class="form-group">
+            <label>Відділення Нової Пошти</label>
+            <input type="text" placeholder="№ відділення" id="inp-np" />
+          </div>
+          <div class="order-summary">
+            <div class="summary-row">
+              <span>Товари (<span id="sum-count">0</span>)</span>
+              <span id="sum-goods">0 грн</span>
+            </div>
+            <div class="summary-row total">
+              <span>СУМА</span><span id="sum-total">0 грн</span>
+            </div>
+          </div>
+          <button class="btn-submit" onclick="submitOrder()">
+            ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 9px">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 32 32"
+              fill="none"
+              style="color: var(--accent); transition: color var(--tr)"
+            >
+              <circle
+                cx="16"
+                cy="16"
+                r="14"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <line
+                x1="16"
+                y1="2"
+                x2="16"
+                y2="30"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <line
+                x1="2"
+                y1="16"
+                x2="30"
+                y2="16"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <circle cx="16" cy="16" r="4" fill="currentColor" />
+            </svg>
+            <span
+              style="
+                font-family: &quot;Bebas Neue&quot;, sans-serif;
+                font-size: 17px;
+                letter-spacing: 3px;
+                color: #fff;
+              "
+              >STONE ISLAND</span
+            >
+          </div>
+          <p>Преміальний одяг для тих, хто цінує якість та стиль.</p>
+        </div>
+        <div class="footer-col">
+          <h5>МЕНЮ</h5>
+          <a onclick="goTo('hero')">Головна</a>
+          <a onclick="goTo('catalog')">Каталог</a>
+          <a onclick="goTo('features')">Переваги</a>
+          <a onclick="goTo('about')">Про нас</a>
+          <a onclick="goTo('order')">Контакти</a>
+        </div>
+        <div class="footer-col">
+          <h5>КАТЕГОРІЇ</h5>
+          <a>Худі</a>
+          <a>Світшоти</a>
+          <a>Zip Hoodie</a>
+          <a>Футболки</a>
+        </div>
+        <div class="footer-col">
+          <h5>КОНТАКТИ</h5>
+
+          <div class="social-row">
+            <div class="social-btn">
+              <svg
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="social-btn">
+              <svg
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 2L11 13" />
+                <path d="M22 2L15 22 11 13 2 9l20-7z" />
+              </svg>
+            </div>
+            <div class="social-btn">
+              <svg
+                width="13"
+                height="13"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.53V6.79a4.85 4.85 0 01-1-.1z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Stone Island Shop. Всі права захищені.
+      </div>
+    </footer>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div
+      class="modal-overlay"
+      id="order-modal"
+      onclick="closeModalOutside(event)"
+    >
+      <div class="modal-box">
+        <div class="modal-icon">
+          <svg
+            width="28"
+            height="28"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <div class="modal-title">ЗАМОВЛЕННЯ ОФОРМЛЕНО!</div>
+        <div class="modal-sub">
+          Дякуємо,
+          <span class="modal-name" id="modal-name-text">—</span>!<br />Ми
+          зв'яжемося з вами найближчим часом для підтвердження.
+        </div>
+        <button class="modal-close" onclick="closeModal()">ЗАКРИТИ</button>
+      </div>
+    </div>
+
+    <!-- GALLERY LIGHTBOX -->
+    <div
+      class="gallery-lightbox"
+      id="gallery-lightbox"
+      onclick="closeGalleryLightbox(event)"
+    >
+      <button
+        class="gallery-lightbox-close"
+        onclick="closeGalleryLightboxBtn()"
+      >
+        <svg
+          width="22"
+          height="22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          viewBox="0 0 24 24"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <img id="gallery-lightbox-img" src="" alt="" />
+    </div>
+
+    <div id="toast">
+      <div class="toast-dot"></div>
+      <span id="toast-msg"></span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
